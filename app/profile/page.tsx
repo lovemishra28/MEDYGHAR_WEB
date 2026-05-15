@@ -1,16 +1,19 @@
-// app/profile/page.tsx
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import AuthForm from '@/components/AuthForm';
+import { Calendar, Activity, Key, MapPin, ShoppingBag, ChevronRight, User, HeartPulse, Mail } from 'lucide-react';
 
 export default function ProfilePage() {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
-  const records = [
-    { type: 'Prescription', date: 'Oct 15, 2023', doctor: 'Dr. Sneha Gupta', file: 'rx_01.pdf' },
-    { type: 'Lab Report', date: 'Oct 29, 2023', test: 'Full Body Checkup', file: 'report_01.pdf' },
+  const accountOptions = [
+    { title: 'My Appointments', icon: <Calendar className="w-5 h-5 text-blue-600" />, href: '#', bg: 'bg-blue-50' },
+    { title: 'My Orders', icon: <ShoppingBag className="w-5 h-5 text-red-500" />, href: '/orders', bg: 'bg-red-50' },
+    { title: 'Medical Details', icon: <Activity className="w-5 h-5 text-green-500" />, href: '#', bg: 'bg-green-50' },
+    { title: 'Change Password', icon: <Key className="w-5 h-5 text-orange-500" />, href: '#', bg: 'bg-orange-50' },
+    { title: 'Your Address', icon: <MapPin className="w-5 h-5 text-purple-500" />, href: '#', bg: 'bg-purple-50', sub: '37.4220, -122.0840' },
   ];
 
   useEffect(() => {
@@ -25,7 +28,7 @@ export default function ProfilePage() {
   if (loading) {
     return (
       <div className="min-h-[70vh] flex items-center justify-center">
-        <div className="text-brand-primary font-bold">Verifying session...</div>
+        <div className="text-blue-600 font-bold">Verifying session...</div>
       </div>
     );
   }
@@ -39,76 +42,98 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto py-10 px-4">
-      <div className="flex flex-col lg:flex-row gap-10">
+    <div className="max-w-4xl mx-auto py-16 px-4">
+      <div className="flex flex-col gap-10">
         
-        {/* Left: User Info Card */}
-        <div className="w-full lg:w-1/3">
-          <div className="bg-white border border-gray-100 rounded-[2.5rem] p-8 shadow-sm text-center">
-            <div className="w-32 h-32 bg-brand-light rounded-full mx-auto flex items-center justify-center text-4xl font-bold text-brand-primary mb-6 border-4 border-white shadow-lg">
-              LM
-            </div>
-            <h2 className="text-2xl font-bold text-gray-heading">{user.email?.split('@')[0] || 'User'}</h2>
-            <p className="text-gray-500 font-medium mt-1">Verified Member</p>
+        {/* Top: User Header Card (Horizontal) */}
+        <div className="w-full">
+          <div className="bg-white border border-gray-100 rounded-[3rem] p-8 md:p-12 shadow-xl shadow-blue-900/5 relative overflow-hidden">
+            {/* Background Accent */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full translate-x-32 -translate-y-32 opacity-30"></div>
             
-            <div className="mt-8 pt-8 border-t border-gray-50 space-y-4 text-left">
-              <div className="flex justify-between text-sm">
-                <span className="text-gray-400">Account</span>
-                <span className="text-gray-heading font-bold">{user.email}</span>
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+              {/* Left: Avatar & Basic Info */}
+              <div className="flex flex-col md:flex-row items-center gap-8 flex-1">
+                <div className="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-5xl font-black text-white border-8 border-white shadow-2xl shrink-0">
+                  {user.email?.[0].toUpperCase() || 'U'}
+                </div>
+                <div className="text-center md:text-left">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-1">{user.email?.split('@')[0] || 'User'}</h2>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-3">
+                    <span className="bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg shadow-blue-600/20">Verified Member</span>
+                    <span className="bg-gray-100 text-gray-500 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">UID: {user.id.slice(0, 8)}</span>
+                  </div>
+                  <p className="text-gray-500 font-medium mt-4 flex items-center justify-center md:justify-start gap-2">
+                    <Mail className="w-4 h-4 text-blue-400" />
+                    {user.email}
+                  </p>
+                </div>
               </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-gray-400">UID</span>
-                <span className="text-gray-heading font-bold text-[10px]">{user.id.slice(0, 12)}...</span>
-              </div>
-            </div>
 
-            <button className="w-full mt-10 py-3 bg-brand-primary text-white rounded-2xl font-bold hover:bg-brand-dark transition-all">
-              Edit Profile
-            </button>
-            
-            <button 
-              onClick={() => supabase.auth.signOut().then(() => window.location.reload())}
-              className="mt-6 text-red-500 font-bold text-sm underline hover:text-red-600 transition-colors"
-            >
-              Logout from MediGhar
-            </button>
+              {/* Right: Actions */}
+              <div className="flex flex-col gap-3 w-full md:w-auto shrink-0">
+                <button className="w-full md:px-10 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
+                  <User className="w-5 h-5" />
+                  Edit Profile
+                </button>
+                <button 
+                  onClick={() => supabase.auth.signOut().then(() => window.location.reload())}
+                  className="w-full md:px-10 py-4 bg-red-50 text-red-500 rounded-2xl font-bold hover:bg-red-100 transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Right: Health Records & Activity */}
-        <div className="flex-1 space-y-8">
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-bold text-gray-heading">Digital Health Records</h3>
-              <span className="bg-brand-light text-brand-primary text-xs font-bold px-3 py-1 rounded-full">Securely Stored</span>
+        {/* Bottom: Account Options List (Stacked Below) */}
+        <div className="w-full">
+          <div className="bg-white border border-gray-100 rounded-[3rem] p-8 md:p-12 shadow-xl shadow-blue-900/5">
+            <div className="mb-10">
+              <h3 className="text-xs font-black text-gray-400 uppercase tracking-[0.2em] mb-2">Account Settings</h3>
+              <h2 className="text-3xl font-black text-gray-900">Personal Information</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {records.map((record, index) => (
-                <div key={index} className="bg-white border border-gray-100 rounded-3xl p-6 flex items-center gap-4 hover:border-brand-primary transition-all cursor-pointer shadow-sm">
-                  <div className="w-12 h-12 bg-brand-light rounded-xl flex items-center justify-center text-xl">
-                    {record.type === 'Prescription' ? '📄' : '🧪'}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {accountOptions.map((option, index) => (
+                <div 
+                  key={index}
+                  className="group flex items-center justify-between p-6 rounded-[2.5rem] border border-gray-50 hover:border-blue-100 hover:bg-blue-50/30 transition-all duration-300 cursor-pointer"
+                >
+                  <div className="flex items-center gap-6">
+                    <div className={`w-14 h-14 ${option.bg} rounded-2xl flex items-center justify-center shadow-inner transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                      {option.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-lg group-hover:text-blue-600 transition-colors">
+                        {option.title}
+                      </h4>
+                      {option.sub && (
+                        <p className="text-xs text-gray-400 mt-1 font-medium">
+                          {option.sub}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-gray-heading text-sm">{record.type}</h4>
-                    <p className="text-xs text-gray-400">{record.date}</p>
-                    <p className="text-xs text-brand-primary font-bold mt-1">{record.doctor || record.test}</p>
+                  <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                    <ChevronRight className="w-5 h-5" />
                   </div>
                 </div>
               ))}
-              <div className="bg-gray-50 border-2 border-dashed border-gray-200 rounded-3xl p-6 flex flex-col items-center justify-center text-gray-400 hover:border-brand-primary hover:text-brand-primary transition-all cursor-pointer">
-                <span className="text-2xl mb-1">+</span>
-                <span className="text-xs font-bold uppercase tracking-wider">Upload New</span>
-              </div>
             </div>
-          </div>
 
-          <div className="bg-brand-primary rounded-[2.5rem] p-8 text-white relative overflow-hidden">
-            <h3 className="text-xl font-bold mb-2">MediGhar Premium</h3>
-            <p className="text-blue-100 text-sm max-w-xs mb-6">Unlock priority consultations and extra savings on all lab tests.</p>
-            <button className="bg-white text-brand-primary px-8 py-2 rounded-full font-bold text-sm">
-              Upgrade Now
-            </button>
-            <div className="absolute right-[-20px] bottom-[-20px] text-8xl opacity-10 rotate-12">🛡️</div>
+            {/* Support CTA */}
+            <div className="mt-12 pt-12 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="text-center md:text-left">
+                <h4 className="text-xl font-bold text-gray-900">Need medical assistance?</h4>
+                <p className="text-gray-500 mt-1">Our support team is available 24/7 for your help.</p>
+              </div>
+              <button className="px-10 py-4 bg-gray-900 text-white rounded-2xl font-bold hover:bg-blue-600 transition-all duration-300 flex items-center gap-2">
+                <HeartPulse className="w-5 h-5" />
+                Contact Support
+              </button>
+            </div>
           </div>
         </div>
 

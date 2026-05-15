@@ -1,22 +1,44 @@
-// components/Navbar.tsx
+"use client";
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { supabase } from '../lib/supabaseClient';
 
 export default function Navbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check initial session
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setIsLoggedIn(!!session);
+    };
+    checkSession();
+
+    // Listen for auth changes (login/logout)
+    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsLoggedIn(!!session);
+    });
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, []);
+
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
           <div className="flex items-center gap-8">
-            <Link href="/" className="text-2xl font-bold text-brand-primary">
+            <Link href="/" className="text-2xl font-bold text-blue-600">
               MediGhar
             </Link>
             
             {/* Nav Links */}
             <div className="hidden md:flex space-x-6">
-              <Link href="/" className="text-gray-600 hover:text-brand-primary font-medium transition-all">Home</Link>
-              <Link href="/orders" className="text-gray-600 hover:text-brand-primary font-medium transition-all">My Orders</Link>
-              <Link href="/consult" className="text-gray-600 hover:text-brand-primary font-medium transition-all">Consult</Link>
+              <Link href="/" className="text-gray-600 hover:text-blue-600 font-medium transition-all">Home</Link>
+              <Link href="/orders" className="text-gray-600 hover:text-blue-600 font-medium transition-all">My Orders</Link>
+              <Link href="/consult" className="text-gray-600 hover:text-blue-600 font-medium transition-all">Consult</Link>
             </div>
           </div>
 
@@ -25,12 +47,26 @@ export default function Navbar() {
                 <input
                   type="text"
                   placeholder="Search medicines..."
-                  className="bg-gray-100 border-none rounded-lg py-2 px-4 w-64 focus:ring-2 focus:ring-brand-primary outline-none text-sm"
+                  className="bg-gray-100 border-none rounded-lg py-2 px-4 w-64 focus:ring-2 focus:ring-blue-600 outline-none text-sm"
                 />
              </div>
-             <Link href="/profile" className="bg-brand-primary text-white px-6 py-2 rounded-full font-semibold hover:bg-brand-dark transition-all">
-                Profile
-             </Link>
+             
+             {/* Conditional Auth Button */}
+             {isLoggedIn ? (
+               <Link 
+                 href="/profile" 
+                 className="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-all shadow-sm"
+               >
+                  Profile
+               </Link>
+             ) : (
+               <Link 
+                 href="/login" 
+                 className="text-blue-600 px-6 py-2 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition-all shadow-sm"
+               >
+                  Login
+               </Link>
+             )}
           </div>
           
         </div>

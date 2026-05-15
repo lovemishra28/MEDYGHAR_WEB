@@ -28,6 +28,14 @@ body {
   }
 }
 
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 ::selection {
   background-color: #E8F0FE;
   color: #1A73E8;
