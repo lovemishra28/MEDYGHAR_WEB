@@ -22,7 +22,7 @@ import Link from 'next/link';
 export default function ConsultPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState("General Physician");
-  const [doctors, setDoctors] = useState([]);
+  const [doctors, setDoctors] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [isBooking, setIsBooking] = useState(false);
   const router = useRouter();
