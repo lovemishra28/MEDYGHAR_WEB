@@ -62,7 +62,7 @@ export default function MyOrdersPage() {
         <p className="text-gray-500 mt-2">Track your healthcare purchases live from Supabase</p>
       </div>
 
-      <div className="flex gap-8 border-b border-gray-100 mb-8">
+      <div className="flex gap-4 md:gap-8 border-b border-gray-100 mb-8 overflow-x-auto whitespace-nowrap hide-scrollbar">
         {['All Orders', 'Medicines', 'Lab Tests'].map((tab) => (
           <button 
             key={tab} 

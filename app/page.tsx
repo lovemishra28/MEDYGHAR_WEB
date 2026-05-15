@@ -284,29 +284,29 @@ export default function Home() {
               <line x1="410" y1="410" x2="275" y2="275" stroke="#E5E7EB" strokeWidth="2" />
             </svg>
             {/* Feature Circles */}
-            <div className="absolute top-0 left-0 w-[160px] h-[160px] md:w-[240px] md:h-[240px] bg-white rounded-full shadow-2xl flex flex-col items-center justify-center border border-gray-100/50 z-10 transition-transform hover:scale-105 duration-300">
-              <div className="w-10 h-10 md:w-16 md:h-16 bg-blue-50 rounded-full flex items-center justify-center mb-3">
+            <div className="absolute top-0 left-[-10px] md:left-0 w-[130px] h-[130px] md:w-[240px] md:h-[240px] bg-white rounded-full shadow-xl md:shadow-2xl flex flex-col items-center justify-center border border-gray-100/50 z-10 transition-transform hover:scale-105 duration-300">
+              <div className="w-10 h-10 md:w-16 md:h-16 bg-blue-50 rounded-full flex items-center justify-center mb-1 md:mb-3">
                 <Stethoscope className="w-5 h-5 md:w-8 md:h-8 text-blue-600" />
               </div>
-              <span className="font-bold text-gray-800 text-[11px] md:text-sm max-w-[80px] md:max-w-[120px] text-center leading-tight">Verified Doctors</span>
+              <span className="font-bold text-gray-800 text-[10px] md:text-sm max-w-[80px] md:max-w-[120px] text-center leading-tight">Verified Doctors</span>
             </div>
-            <div className="absolute top-0 right-0 w-[160px] h-[160px] md:w-[240px] md:h-[240px] bg-white rounded-full shadow-2xl flex flex-col items-center justify-center border border-gray-100/50 z-10 transition-transform hover:scale-105 duration-300">
-              <div className="w-10 h-10 md:w-16 md:h-16 bg-orange-50 rounded-full flex items-center justify-center mb-3">
+            <div className="absolute top-0 right-[-10px] md:right-0 w-[130px] h-[130px] md:w-[240px] md:h-[240px] bg-white rounded-full shadow-xl md:shadow-2xl flex flex-col items-center justify-center border border-gray-100/50 z-10 transition-transform hover:scale-105 duration-300">
+              <div className="w-10 h-10 md:w-16 md:h-16 bg-orange-50 rounded-full flex items-center justify-center mb-1 md:mb-3">
                 <FileText className="w-5 h-5 md:w-8 md:h-8 text-orange-500" />
               </div>
-              <span className="font-bold text-gray-800 text-[11px] md:text-sm max-w-[80px] md:max-w-[120px] text-center leading-tight">Accurate Lab Reports</span>
+              <span className="font-bold text-gray-800 text-[10px] md:text-sm max-w-[80px] md:max-w-[120px] text-center leading-tight">Accurate Lab Reports</span>
             </div>
-            <div className="absolute bottom-0 left-0 w-[160px] h-[160px] md:w-[240px] md:h-[240px] bg-white rounded-full shadow-2xl flex flex-col items-center justify-center border border-gray-100/50 z-10 transition-transform hover:scale-105 duration-300">
-              <div className="w-10 h-10 md:w-16 md:h-16 bg-green-50 rounded-full flex items-center justify-center mb-3">
+            <div className="absolute bottom-0 left-[-10px] md:left-0 w-[130px] h-[130px] md:w-[240px] md:h-[240px] bg-white rounded-full shadow-xl md:shadow-2xl flex flex-col items-center justify-center border border-gray-100/50 z-10 transition-transform hover:scale-105 duration-300">
+              <div className="w-10 h-10 md:w-16 md:h-16 bg-green-50 rounded-full flex items-center justify-center mb-1 md:mb-3">
                 <Pill className="w-5 h-5 md:w-8 md:h-8 text-green-500" />
               </div>
-              <span className="font-bold text-gray-800 text-[11px] md:text-sm max-w-[80px] md:max-w-[120px] text-center leading-tight">Affordable Medicines</span>
+              <span className="font-bold text-gray-800 text-[10px] md:text-sm max-w-[80px] md:max-w-[120px] text-center leading-tight">Affordable Medicines</span>
             </div>
-            <div className="absolute bottom-0 right-0 w-[160px] h-[160px] md:w-[240px] md:h-[240px] bg-white rounded-full shadow-2xl flex flex-col items-center justify-center border border-gray-100/50 z-10 transition-transform hover:scale-105 duration-300">
-              <div className="w-10 h-10 md:w-16 md:h-16 bg-red-50 rounded-full flex items-center justify-center mb-3">
+            <div className="absolute bottom-0 right-[-10px] md:right-0 w-[130px] h-[130px] md:w-[240px] md:h-[240px] bg-white rounded-full shadow-xl md:shadow-2xl flex flex-col items-center justify-center border border-gray-100/50 z-10 transition-transform hover:scale-105 duration-300">
+              <div className="w-10 h-10 md:w-16 md:h-16 bg-red-50 rounded-full flex items-center justify-center mb-1 md:mb-3">
                 <ShieldCheck className="w-5 h-5 md:w-8 md:h-8 text-red-500" />
               </div>
-              <span className="font-bold text-gray-800 text-[11px] md:text-sm max-w-[80px] md:max-w-[120px] text-center leading-tight">100% Secure Data</span>
+              <span className="font-bold text-gray-800 text-[10px] md:text-sm max-w-[80px] md:max-w-[120px] text-center leading-tight">100% Secure Data</span>
             </div>
           </div>
           <p className="text-gray-500 text-center max-w-lg px-6 text-sm md:text-lg font-medium leading-relaxed">
@@ -320,7 +320,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-black text-gray-800">How MedyGhar Works</h2>
             <p className="text-gray-500 mt-3 text-lg">Simple 3-step process for your healthcare needs</p>
           </div>
-          <div className="flex w-full max-w-6xl h-[380px] gap-3 md:gap-6 px-4 justify-center">
+          <div className="flex flex-col md:flex-row w-full max-w-6xl h-[600px] md:h-[380px] gap-3 md:gap-6 px-4 justify-center">
             {steps.map((step, index) => {
               let order = 1;
               if (index === expandedStep) order = 1;
@@ -334,28 +334,28 @@ export default function Home() {
                   style={{ order }}
                   className={`relative overflow-hidden rounded-[3rem] border-2 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.4,1)] cursor-pointer flex items-center
                     ${expandedStep === index 
-                      ? 'flex-[35] bg-white border-blue-100 shadow-2xl' 
-                      : 'flex-[1] bg-gray-50/30 border-transparent opacity-30 hover:opacity-60 justify-center'
+                      ? 'flex-[35] md:flex-[35] bg-white border-blue-100 shadow-2xl' 
+                      : 'flex-[1] md:flex-[1] bg-gray-50/30 border-transparent opacity-30 hover:opacity-60 justify-center'
                     }`}
                 >
-                  <div className={`flex flex-row items-center w-full px-8 md:px-16 gap-8 md:gap-16 transition-all duration-700 absolute inset-0
-                    ${expandedStep === index ? 'opacity-100 scale-100 pointer-events-auto translate-x-0' : 'opacity-0 scale-95 pointer-events-none -translate-x-10'}`}>
-                    <div className="flex-[2] flex items-center justify-center">
-                      <div className="w-32 h-32 md:w-56 md:h-56 bg-blue-600 rounded-[2.5rem] md:rounded-[3.5rem] flex items-center justify-center shadow-2xl rotate-6 transform hover:rotate-0 transition-transform duration-700">
-                        <span className="text-7xl md:text-9xl font-black text-white leading-none select-none">{index + 1}</span>
+                  <div className={`flex flex-col md:flex-row items-center w-full px-6 md:px-16 py-8 md:py-0 gap-6 md:gap-16 transition-all duration-700 absolute inset-0
+                    ${expandedStep === index ? 'opacity-100 scale-100 pointer-events-auto translate-y-0 md:translate-x-0' : 'opacity-0 scale-95 pointer-events-none -translate-y-10 md:translate-y-0 md:-translate-x-10'}`}>
+                    <div className="flex-1 md:flex-[2] flex items-center justify-center">
+                      <div className="w-24 h-24 md:w-56 md:h-56 bg-blue-600 rounded-[2rem] md:rounded-[3.5rem] flex items-center justify-center shadow-2xl rotate-6 transform hover:rotate-0 transition-transform duration-700">
+                        <span className="text-6xl md:text-9xl font-black text-white leading-none select-none">{index + 1}</span>
                       </div>
                     </div>
-                    <div className="flex-[3] flex flex-col items-start text-left">
-                      <div className="w-14 h-14 md:w-20 md:h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600 shadow-inner">
+                    <div className="flex-[2] md:flex-[3] flex flex-col items-center md:items-start text-center md:text-left">
+                      <div className="w-12 h-12 md:w-20 md:h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 md:mb-6 text-blue-600 shadow-inner">
                         {step.icon}
                       </div>
-                      <h4 className="text-2xl md:text-5xl font-black text-gray-800 mb-4 tracking-tight">{step.title}</h4>
-                      <p className="text-gray-500 text-base md:text-xl leading-relaxed max-w-[450px]">{step.desc}</p>
+                      <h4 className="text-2xl md:text-5xl font-black text-gray-800 mb-2 md:mb-4 tracking-tight">{step.title}</h4>
+                      <p className="text-gray-500 text-sm md:text-xl leading-relaxed max-w-[450px]">{step.desc}</p>
                     </div>
                   </div>
                   <div className={`flex items-center justify-center w-full h-full transition-opacity duration-500 absolute inset-0
                     ${expandedStep === index ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'}`}>
-                    <div className="w-1.5 md:w-2 h-24 bg-gray-200 rounded-full"></div>
+                    <div className="w-16 h-1.5 md:w-2 md:h-24 bg-gray-200 rounded-full text-transparent">.</div>
                   </div>
                 </div>
               );
@@ -364,30 +364,30 @@ export default function Home() {
         </section>
 
         {/* 8. Verified Medical Stores */}
-        <section className="py-12 px-4 md:px-0 flex flex-col md:flex-row items-center gap-12 md:gap-20 overflow-hidden relative">
-          <div className="flex-1 md:text-left text-center z-10">
+        <section className="py-12 px-4 md:px-0 flex flex-col md:flex-row items-center gap-6 md:gap-20 overflow-hidden relative">
+          <div className="flex-1 md:text-left text-center z-10 w-full mb-10 md:mb-0">
             <h2 className="text-4xl md:text-6xl font-black text-gray-800 leading-[0.95] tracking-tighter uppercase">
               Verified <br /> <span className="text-blue-600">Medical</span> <br /> <span>Stores</span>
             </h2>
-            <p className="text-gray-500 mt-6 text-base md:text-xl font-medium max-w-md leading-relaxed">
+            <p className="text-gray-500 mt-4 md:mt-6 text-sm md:text-xl font-medium max-w-sm md:max-w-md mx-auto md:mx-0 leading-relaxed">
               Our authorized partners ensuring <span className="text-gray-800">authentic medicine delivery</span> with live tracking and verified safety protocols.
             </p>
 
           </div>
-          <div className="flex-1 relative w-full h-[450px] md:h-[550px] flex items-center justify-center mt-12 md:mt-0">
-            <div className="relative w-full h-full max-w-[500px]">
+          <div className="flex-1 w-full min-h-[350px] md:min-h-[550px] flex items-center justify-center relative z-20">
+            <div className="relative w-full h-[350px] md:h-full max-w-[350px] md:max-w-[500px]">
               {medicalStores.map((store, index) => {
                 const positions = [
-                  "top-[10%] right-0 z-20",
-                  "bottom-0 left-[35%] z-30",
-                  "top-0 left-0 z-10",
+                  "top-[5%] right-0 z-20",
+                  "bottom-0 left-[20%] md:left-[35%] z-30",
+                  "top-[15%] md:top-0 left-0 z-10",
                 ];
                 return (
-                  <div key={index} className={`absolute w-[180px] h-[180px] md:w-[260px] md:h-[260px] bg-blue-600 rounded-full shadow-[0_20px_40px_-10px_rgba(37,99,235,0.3)] border-4 border-white flex flex-col items-center justify-center p-6 transition-transform duration-500 hover:scale-105 hover:z-50 cursor-pointer group ${positions[index]}`}>
-                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-4 text-white backdrop-blur-sm shadow-inner transition-transform duration-500 group-hover:rotate-12">
-                      {React.cloneElement(store.icon as React.ReactElement, { className: "w-6 h-6 md:w-8 md:h-8 text-white" })}
+                  <div key={index} className={`absolute w-[140px] h-[140px] md:w-[260px] md:h-[260px] bg-blue-600 rounded-full shadow-[0_20px_40px_-10px_rgba(37,99,235,0.3)] border-4 border-white flex flex-col items-center justify-center p-2 md:p-6 transition-transform duration-500 hover:scale-105 hover:z-50 cursor-pointer group ${positions[index]}`}>
+                    <div className="w-10 h-10 md:w-16 md:h-16 bg-white/20 rounded-xl md:rounded-2xl flex items-center justify-center mb-2 md:mb-4 text-white backdrop-blur-sm shadow-inner transition-transform duration-500 group-hover:rotate-12">
+                      {React.cloneElement(store.icon as React.ReactElement, { className: "w-5 h-5 md:w-8 md:h-8 text-white" })}
                     </div>
-                    <span className="text-sm md:text-xl font-black text-white text-center leading-tight tracking-tight uppercase px-4">{store.name}</span>
+                    <span className="text-[10px] md:text-xl font-black text-white text-center leading-tight tracking-tight uppercase px-2 md:px-4">{store.name}</span>
                   </div>
                 );
               })}
