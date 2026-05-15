@@ -31,7 +31,7 @@ export default function Navbar() {
           
           <div className="flex items-center gap-8">
             <Link href="/" className="text-2xl font-bold text-blue-600">
-              MediGhar
+              MedyGhar
             </Link>
             
             {/* Nav Links */}

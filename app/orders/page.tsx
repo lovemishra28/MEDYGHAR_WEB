@@ -1,12 +1,29 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabaseClient';
 
 export default function MyOrdersPage() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('All Orders');
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        router.push('/login?message=login_required');
+      } else {
+        setIsCheckingAuth(false);
+      }
+    };
+    checkAuth();
+  }, [router]);
+
+  useEffect(() => {
+    if (isCheckingAuth) return;
     async function fetchOrders() {
       setLoading(true);
       try {
@@ -29,6 +46,14 @@ export default function MyOrdersPage() {
   const filteredOrders = activeTab === 'All Orders' 
     ? orders 
     : orders.filter((o: any) => o.order_type === (activeTab === 'Medicines' ? 'Medicine' : 'Lab Test'));
+
+  if (isCheckingAuth) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-blue-600 font-bold animate-pulse">Verifying access...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-5xl mx-auto py-10 px-4">

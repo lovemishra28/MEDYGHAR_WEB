@@ -4,8 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "MediGhar | Complete Healthcare",
-  description: "MediGhar brings complete healthcare to your home with safety, privacy, and absolute simplicity.",
+  title: "MedyGhar | Complete Healthcare",
+  description: "MedyGhar brings complete healthcare to your home with safety, privacy, and absolute simplicity.",
 };
 
 export default function RootLayout({

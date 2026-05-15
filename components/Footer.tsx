@@ -55,7 +55,7 @@ const Footer = () => {
                 <HeartPulse className="w-7 h-7 text-white" />
               </div>
               <span className="text-3xl font-black tracking-tighter uppercase">
-                Medi<span className="text-blue-500">Ghar</span>
+                Medy<span className="text-blue-500">Ghar</span>
               </span>
             </Link>
             <p className="text-gray-400 text-lg leading-relaxed mb-8 max-w-md">
@@ -80,7 +80,7 @@ const Footer = () => {
               
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div className="text-center md:text-left">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Download MediGhar App</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Download MedyGhar App</h3>
                   <p className="text-blue-100/80">Get the best healthcare experience on your phone.</p>
                 </div>
                 <div className="flex flex-wrap justify-center gap-4">
@@ -143,7 +143,7 @@ const Footer = () => {
                 <div className="w-10 h-10 rounded-xl bg-blue-600/10 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-blue-500" />
                 </div>
-                <p className="text-gray-400 text-sm">support@medighar.com</p>
+                <p className="text-gray-400 text-sm">support@medyghar.com</p>
               </li>
             </ul>
           </div>
@@ -152,7 +152,7 @@ const Footer = () => {
         {/* Bottom Section: Copyright */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-gray-500 text-sm">
-            © {currentYear} <span className="text-gray-300 font-bold">MediGhar Healthcare Pvt. Ltd.</span> All rights reserved.
+            © {currentYear} <span className="text-gray-300 font-bold">MedyGhar Healthcare Pvt. Ltd.</span> All rights reserved.
           </p>
           <div className="flex items-center gap-8">
             <Link href="#" className="text-gray-500 hover:text-white text-sm transition-colors">Privacy Policy</Link>

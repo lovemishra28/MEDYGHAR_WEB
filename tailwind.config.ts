@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: '#1A73E8', // The correct MediGhar Blue
+          primary: '#1A73E8', // The correct MedyGhar Blue
           dark: '#1557B0',    // Darker blue for hovers
           light: '#E8F0FE',   // Soft blue for backgrounds
         },

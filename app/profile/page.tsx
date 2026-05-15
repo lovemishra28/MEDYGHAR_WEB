@@ -1,12 +1,13 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import AuthForm from '@/components/AuthForm';
+import { useRouter } from 'next/navigation';
 import { Calendar, Activity, Key, MapPin, ShoppingBag, ChevronRight, User, HeartPulse, Mail } from 'lucide-react';
 
 export default function ProfilePage() {
   const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   const accountOptions = [
     { title: 'My Appointments', icon: <Calendar className="w-5 h-5 text-blue-600" />, href: '#', bg: 'bg-blue-50' },
@@ -19,11 +20,15 @@ export default function ProfilePage() {
   useEffect(() => {
     const getUser = async () => {
       const { data } = await supabase.auth.getUser();
-      setUser(data.user);
+      if (!data.user) {
+        router.push('/login?message=login_required');
+      } else {
+        setUser(data.user);
+      }
       setLoading(false);
     };
     getUser();
-  }, []);
+  }, [router]);
 
   if (loading) {
     return (
@@ -33,13 +38,7 @@ export default function ProfilePage() {
     );
   }
 
-  if (!user) {
-    return (
-      <div className="min-h-[70vh] flex items-center justify-center">
-        <AuthForm />
-      </div>
-    );
-  }
+  if (!user) return null;
 
   return (
     <div className="max-w-4xl mx-auto py-16 px-4">

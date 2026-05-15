@@ -51,7 +51,7 @@ export default function Home() {
     }, 4000); // Changes doctor every 4 seconds
     return () => clearInterval(docTimer);
   }, [topDoctors.length]);
-  // --- How MediGhar Works Accordion Logic ---
+  // --- How MedyGhar Works Accordion Logic ---
   const [expandedStep, setExpandedStep] = useState(0);
   
   useEffect(() => {
@@ -108,7 +108,7 @@ export default function Home() {
 
   const medicalStores = [
     { name: 'Choose Service', icon: <MapPin className="w-8 h-8 md:w-10 md:h-10" /> },
-    { name: 'MediGhar Pharmacy', icon: <Store className="w-8 h-8 md:w-10 md:h-10" /> },
+    { name: 'MedyGhar Pharmacy', icon: <Store className="w-8 h-8 md:w-10 md:h-10" /> },
     { name: 'Local Verified', icon: <CalendarCheck className="w-8 h-8 md:w-10 md:h-10" /> },
   ];
 
@@ -139,7 +139,7 @@ export default function Home() {
               Healthcare <br /><span className="text-blue-200">Simplified</span> for You.
             </h1>
             <p className="text-lg md:text-2xl text-white/90 font-medium mb-10 max-w-xl mx-auto">
-              MediGhar brings verified doctors and affordable medicines right to your doorstep.
+              MedyGhar brings verified doctors and affordable medicines right to your doorstep.
             </p>
 
           </div>
@@ -266,16 +266,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 6. WHY MEDIGHAR */}
+        {/* 6. WHY MEDYGHAR */}
         <section className="py-20 flex flex-col items-center">
-          <h2 className="text-2xl md:text-4xl font-black text-gray-800 mb-20 tracking-wider uppercase text-center">WHY MEDIGHAR</h2>
+          <h2 className="text-2xl md:text-4xl font-black text-gray-800 mb-20 tracking-wider uppercase text-center">WHY MEDYGHAR</h2>
           <div className="relative w-full max-w-[340px] md:max-w-[550px] aspect-square mb-20 flex items-center justify-center">
             <div className="relative z-30 flex flex-col items-center justify-center bg-white p-4 rounded-full">
               <div className="relative w-14 h-14 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center shadow-xl border-2 border-blue-500">
                 <HeartPulse className="w-8 h-8 md:w-10 md:h-10 text-blue-600" />
                 <div className="absolute inset-[-10px] md:inset-[-15px] border-2 border-dashed border-blue-200 rounded-full animate-[spin_10s_linear_infinite]"></div>
               </div>
-              <span className="mt-4 font-black text-gray-800 text-sm md:text-lg">MediGhar</span>
+              <span className="mt-4 font-black text-gray-800 text-sm md:text-lg">MedyGhar</span>
             </div>
             <svg className="absolute inset-0 w-full h-full -z-0" viewBox="0 0 550 550">
               <line x1="140" y1="140" x2="275" y2="275" stroke="#E5E7EB" strokeWidth="2" />
@@ -310,14 +310,14 @@ export default function Home() {
             </div>
           </div>
           <p className="text-gray-500 text-center max-w-lg px-6 text-sm md:text-lg font-medium leading-relaxed">
-            MediGhar brings complete healthcare to your home with <span className="text-gray-700">safety, privacy, and absolute simplicity.</span>
+            MedyGhar brings complete healthcare to your home with <span className="text-gray-700">safety, privacy, and absolute simplicity.</span>
           </p>
         </section>
 
-        {/* 7. How MediGhar Works */}
+        {/* 7. How MedyGhar Works */}
         <section className="py-20 flex flex-col items-center">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-800">How MediGhar Works</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-800">How MedyGhar Works</h2>
             <p className="text-gray-500 mt-3 text-lg">Simple 3-step process for your healthcare needs</p>
           </div>
           <div className="flex w-full max-w-6xl h-[380px] gap-3 md:gap-6 px-4 justify-center">
